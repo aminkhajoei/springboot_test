@@ -1,0 +1,35 @@
+
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: postgres
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: false
+    properties:
+      hibernate:
+        order_inserts : true
+        jdbc:
+          batch_size: 100
+        format_sql: false
+
+server:
+  port: 6666
+  servlet:
+    session:
+      cookie:
+        http-only: true
+
